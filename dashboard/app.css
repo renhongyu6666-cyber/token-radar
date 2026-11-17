@@ -1,0 +1,130 @@
+/* Token Radar — hand-written CSS. Palette: deep ink navy, amber signal, teal growth. */
+:root {
+  --bg: #0d1320;
+  --panel: #151e30;
+  --panel2: #1a2438;
+  --line: #26334d;
+  --ink: #e9eef7;
+  --muted: #93a1b8;
+  --faint: #6b7a93;
+  --amber: #f2b13c;
+  --amber-dim: #8a6a24;
+  --teal: #2fd4b5;
+  --red: #f26d6d;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.5 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.top {
+  display: flex; flex-wrap: wrap; gap: 8px 24px;
+  align-items: flex-end; justify-content: space-between;
+  padding: 22px 28px 14px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #111a2c, #0d1320);
+}
+.brand { display: flex; gap: 14px; align-items: center; }
+.mark {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--amber); font-size: 30px; line-height: 1;
+  border: 2px solid var(--amber);
+  box-shadow: 0 0 0 4px rgba(242, 177, 60, .12), 0 0 22px rgba(242, 177, 60, .25);
+}
+h1 { margin: 0; font-size: 30px; letter-spacing: .04em; }
+h1::after { content: ""; display: block; width: 64px; height: 3px; background: var(--amber); margin-top: 4px; }
+.tag { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+.meta { margin: 0; color: var(--muted); font-size: 13px; text-align: right; max-width: 520px; }
+.meta b { color: var(--ink); }
+.tabs { display: flex; gap: 4px; padding: 12px 28px 0; }
+.tab {
+  border: 1px solid var(--line); border-bottom: none;
+  background: var(--panel); color: var(--muted);
+  padding: 9px 16px; border-radius: 8px 8px 0 0;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.tab.active { background: var(--panel2); color: var(--amber); border-color: var(--amber-dim); }
+.view { padding: 18px 28px 28px; }
+h2 { margin: 4px 0 8px; font-size: 21px; }
+h3 { margin: 22px 0 8px; font-size: 16px; color: var(--amber); }
+.lede { color: var(--muted); max-width: 860px; margin: 0 0 16px; }
+.controls {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px;
+}
+.ctl { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.ctl.grow { flex: 1 1 260px; }
+.ctl.check { flex-direction: row; align-items: center; gap: 8px; padding-bottom: 9px; text-transform: none; letter-spacing: 0; font-size: 14px; color: var(--ink); }
+input[type="search"], select {
+  background: var(--bg); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 7px;
+  padding: 8px 10px; font: inherit; font-size: 14px;
+}
+input[type="search"]:focus, select:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--amber); }
+.count { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+.count b { color: var(--amber); }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--panel2); color: var(--muted);
+  text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
+  padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap;
+}
+tbody td { padding: 9px 12px; border-bottom: 1px solid #1d2940; vertical-align: middle; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: #1b2740; }
+tbody tr.sel { background: #232c12; box-shadow: inset 3px 0 0 var(--amber); }
+.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rank { color: var(--amber); font-weight: 700; }
+.name { font-weight: 650; }
+.slug { color: var(--faint); font-size: 12px; }
+.badge {
+  display: inline-block; margin-left: 7px; padding: 1px 7px;
+  border-radius: 20px; background: rgba(242, 177, 60, .16); color: var(--amber);
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; vertical-align: 1px;
+}
+.up { color: var(--teal); }
+.down { color: var(--red); }
+.flat { color: var(--muted); }
+.val { font-weight: 700; color: #ffd98a; }
+.note { color: var(--faint); font-size: 12.5px; max-width: 900px; }
+.detail {
+  border: 1px solid var(--amber-dim); border-radius: var(--radius);
+  background: linear-gradient(180deg, #1b1a12, var(--panel));
+  padding: 18px 20px; margin-bottom: 14px;
+}
+.detail h2 { margin: 0 0 2px; }
+.detail .sub { color: var(--muted); margin: 0 0 14px; font-size: 13.5px; }
+.detail h3 { margin: 16px 0 6px; }
+.detail h3:first-of-type { margin-top: 0; }
+.breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.stat { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.stat .v { font-size: 17px; font-weight: 700; margin-top: 2px; }
+.stat .v small { color: var(--muted); font-weight: 400; font-size: 12px; }
+.steps { margin: 0; padding-left: 20px; }
+.steps li { margin: 7px 0; }
+.steps li::marker { color: var(--amber); font-weight: 700; }
+.close {
+  float: right; border: 1px solid var(--line); background: var(--bg); color: var(--muted);
+  border-radius: 7px; padding: 5px 11px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.close:hover { color: var(--ink); border-color: var(--amber); }
+.formula { max-width: 860px; padding-left: 22px; }
+.formula li { margin: 10px 0; }
+.formula li::marker { color: var(--amber); font-weight: 700; }
+footer { padding: 0 28px 26px; color: var(--faint); font-size: 12.5px; }
+footer p { margin: 0; border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 900px) {
+  .top, .tabs, .view { padding-left: 14px; padding-right: 14px; }
+  h1 { font-size: 24px; }
+  .meta { text-align: left; }
+}
